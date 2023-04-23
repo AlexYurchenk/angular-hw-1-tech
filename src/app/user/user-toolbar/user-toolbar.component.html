@@ -1,0 +1,42 @@
+<mat-toolbar>
+  <mat-checkbox
+    [checked]="isAllSelected"
+    (change)="handleSelectAll()"
+    class="checkbox"
+    color="primary"
+    >Select All</mat-checkbox
+  >
+  <button
+    [disabled]="isDeleteButtonDisabled"
+    style="background-color: transparent"
+    mat-flat-button
+    (click)="handleDeleteClick()"
+  >
+    Delete
+  </button>
+  <button
+    style="background-color: transparent"
+    mat-flat-button
+    [matMenuTriggerFor]="menu"
+  >
+    Sorting order
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="handleNewestSort()">Show the newest</button>
+    <button mat-menu-item (click)="handleAlphabeticalOrderSort()">
+      Show users in alphabetical order
+    </button>
+  </mat-menu>
+  <div class="search">
+    <mat-form-field>
+      <mat-label>Search user</mat-label>
+      <input
+        placeholder="Search users"
+        matInput
+        type="text"
+        [value]="query"
+        (input)="handleInput($event)"
+      />
+    </mat-form-field>
+  </div>
+</mat-toolbar>

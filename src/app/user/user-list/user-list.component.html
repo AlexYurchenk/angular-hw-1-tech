@@ -1,0 +1,12 @@
+<ul class="userList">
+  <li
+    class="userList__item"
+    *ngFor="let user of users; let i = index; trackBy: userTrackBy"
+  >
+    <app-user-card
+      (onChecked)="handleChecked($event)"
+      [user]="user"
+      [isChecked]="selectedItems.includes(user.id)"
+    ></app-user-card>
+  </li>
+</ul>

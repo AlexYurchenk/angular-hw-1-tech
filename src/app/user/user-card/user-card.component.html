@@ -1,0 +1,24 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-checkbox
+      [checked]="isChecked"
+      (change)="handleChecked(user.id)"
+      class="checkbox"
+      color="primary"
+    ></mat-checkbox>
+  </mat-card-header>
+  <img
+    *ngIf="user.image"
+    class="card__img"
+    mat-card-image
+    src="{{ user.image }}"
+    alt="{{ user.firstname }}"
+  />
+  <mat-card-content class="card__meta">
+    <p class="card__text">{{ user.firstname }}</p>
+    <p class="card__text">{{ user.lastname }}</p>
+
+    <p class="card__text">{{ user.email }}</p>
+    <p class="card__text">{{ user.phone }}</p>
+  </mat-card-content>
+</mat-card>
